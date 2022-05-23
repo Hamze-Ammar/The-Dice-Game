@@ -17,7 +17,7 @@ function getRandomInt(max) {
    return Math.floor(Math.random() * max);
 }
 
-console.log (getRandomInt(5));
+//console.log (getRandomInt(5));
 
 let dice_1_element = document.getElementsByClassName("img1")[0];
 let dice_2_element = document.getElementsByClassName("img2")[0];
@@ -32,3 +32,27 @@ var rand_2 = getRandomInt(6);
 
 dice_1_element.src = dices[rand_1];
 dice_2_element.src = dices[rand_2];
+
+// Determine who wins
+function getWinner() {
+    if (rand_1>rand_2){
+        return 1;
+    }
+    else if (rand_1<rand_2){
+        return 2;
+    }
+    else {
+        return 0;
+    }
+}
+
+const outcome = ["Draw!","Play 1 wins!","Play 2 wins!"];
+
+//this function will display the result in the element tag passed to it
+function displayResult(tag_name){
+   //calling the h1 element to display result
+    var element = document.getElementsByTagName(tag_name)[0];
+    element.innerHTML = outcome[getWinner()];
+}
+
+displayResult("h1");
