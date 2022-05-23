@@ -1,5 +1,3 @@
-
-
 // Store the imgages sources inside variables then inside an array
 const dice1_src = "./images/dice1.png";
 const dice2_src = "./images/dice2.png";
@@ -10,26 +8,22 @@ const dice6_src = "./images/dice6.png";
 const dices = [dice1_src, dice2_src, dice3_src, dice4_src, dice5_src, dice6_src];
 
 
-//console.log (dice1_src);
-
 //returns a random integer between 0 and max (max excluded)
 function getRandomInt(max) {
    return Math.floor(Math.random() * max);
 }
 
-//console.log (getRandomInt(5));
-
-let dice_1_element = document.getElementsByClassName("img1")[0];
-let dice_2_element = document.getElementsByClassName("img2")[0];
-
-// console.log(dice_1);
-// console.log(dice_2);
-
 //Storing the random numbers in vairables
+//we need them later to check for the winner
 var rand_1 = getRandomInt(6);
 var rand_2 = getRandomInt(6);
 
 
+//Storing the two dices element in two variables
+let dice_1_element = document.getElementsByClassName("img1")[0];
+let dice_2_element = document.getElementsByClassName("img2")[0];
+
+//change the dices elements sources based on the result
 dice_1_element.src = dices[rand_1];
 dice_2_element.src = dices[rand_2];
 
@@ -46,7 +40,8 @@ function getWinner() {
     }
 }
 
-const outcome = ["Draw!","Play 1 wins!","Play 2 wins!"];
+//All possible results
+const outcome = ["Draw!","&#128681 Play 1 wins!","&#128681 Play 2 wins!"];
 
 //this function will display the result in the element tag passed to it
 function displayResult(tag_name){
@@ -54,5 +49,6 @@ function displayResult(tag_name){
     var element = document.getElementsByTagName(tag_name)[0];
     element.innerHTML = outcome[getWinner()];
 }
+
 
 displayResult("h1");
