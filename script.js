@@ -25,5 +25,10 @@ let dice_2_element = document.getElementsByClassName("img2")[0];
 // console.log(dice_1);
 // console.log(dice_2);
 
-dice_1_element.src = dices[getRandomInt(6)];
-dice_2_element.src = dices[getRandomInt(6)];
+//Storing the random numbers in vairables
+var rand_1 = getRandomInt(6);
+var rand_2 = getRandomInt(6);
+
+
+dice_1_element.src = dices[rand_1];
+dice_2_element.src = dices[rand_2];
