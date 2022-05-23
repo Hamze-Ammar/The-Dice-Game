@@ -10,7 +10,6 @@ const dices = [dice1_src, dice2_src, dice3_src, dice4_src, dice5_src, dice6_src]
 //All possible results
 const outcome = ["Draw!","&#128681 Play 1 wins!","&#128681 Play 2 wins!"];
 
-
 //returns a random integer between 0 and max (max excluded)
 function getRandomInt(max) {
    return Math.floor(Math.random() * max);
@@ -29,11 +28,10 @@ function getWinner() {
     }
 }
 
-//Storing the random numbers in vairables
+//Storing the random numbers in variables
 //we need them later to check for the winner
 var rand_1 = getRandomInt(6);
 var rand_2 = getRandomInt(6);
-
 
 //change the dices elements sources based on the result
 document.getElementsByClassName("img1")[0].src = dices[rand_1];
@@ -45,6 +43,5 @@ function displayResult(tag_name){
    //calling the h1 element to display result
     document.getElementsByTagName(tag_name)[0].innerHTML = outcome[getWinner()];
 }
-
 
 displayResult("h1");
